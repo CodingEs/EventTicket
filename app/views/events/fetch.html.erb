@@ -1,0 +1,36 @@
+<% @title = 'New Event'%>
+<h2>Create a new event</h2>
+
+
+
+<%= form_for @event do |f| %>
+  <input type="hidden" id="event_location_id" name="event[event_location_id]" value="<%= @location_id %>"/>
+    <% if @event.errors.any? %>
+        <ul>
+          <% @event.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+          <% end %>
+        </ul>
+    <% end %>
+
+    <p>
+      <%= f.label :name %>
+      <%=  f.text_field :name %>
+    </p>
+
+    <p>
+      <%= f.label :ticket_price %>
+      <%= f.text_field :ticket_price %>
+    </p>
+    <p>
+      <%= f.label :description %>
+      <%= f.text_area :description %>
+    </p>
+    <p>
+      <%= f.submit %>
+    </p>
+
+<% end %>
+<p>
+  <%= link_to 'Back to event locations', event_location_path(@location_id) %>
+</p>

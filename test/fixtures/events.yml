@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  event_location_id: 1
+  name: MyString
+  desciption: MyText
+  ticket_price: 9.99
+
+two:
+  event_location_id: 1
+  name: MyString
+  desciption: MyText
+  ticket_price: 9.99

@@ -1,0 +1,13 @@
+<% @title = 'Index Event Locations' %>
+
+<h1>Event Locations</h1>
+<h4>Choose your Event Location.</h4>
+<ul>
+  <% @locations.each do |location|%>
+  <li><%= link_to  location.name, action: 'show', id: location.id %>
+      </li>
+      <% end %>
+</ul>
+<p>
+  <%= link_to 'Create new event location', action: 'new' %>
+</p>

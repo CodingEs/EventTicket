@@ -1,0 +1,33 @@
+<% @title = 'Ticket Booking'%>
+<h2>Create a ticket booking</h2>
+
+<%= form_for :order, :url => { :action => :create } do |f| %>
+  <input type="hidden" name="order[event_id]" value="<%= params[:event_id] %>"/>
+  <% if @error.present? %>
+      <ul>
+        <li><%= @error %></li>
+      </ul>
+  <% end %>
+
+  <p>
+    <%= f.label :first_name %>
+    <%=  f.text_field :first_name %>
+  </p>
+
+  <p>
+    <%= f.label :last_name %>
+    <%= f.text_field :last_name %>
+  </p>
+
+  <p>
+    <%= f.label :quantity %>
+    <%= f.text_field :quantity %>
+  </p>
+
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+<p>
+  <%= link_to 'Back to event', event_path(params[:event_id]) %>
+</p>

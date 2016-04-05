@@ -1,0 +1,23 @@
+<% @title = @location.name + ' details' %>
+<h2><%= h @location.name %></h2>
+<p>Description: <%= h @location.description %></p>
+<p>Max. seats: <%= h @location.available_seats %></p>
+<p>Total Events: <%= @location.events.count %></p>
+<p>
+  <%= link_to 'Edit', edit_event_location_path(params[:id]) %>
+  <%= link_to 'Delete', event_location_path(@location), method: :delete, confirm: 'Are you sure?' %>
+</p>
+<p>
+  All events at this location:
+  <ul>
+    <% @events.each do |event| %>
+    <li>
+      <%= link_to event.name, event_path(event) %>
+    </li>
+        <% end %>
+  </ul>
+</p>
+<p>
+  <%= link_to 'Create a new event', fetch_event_path(params[:id]) %>
+</p>
+<p><%= link_to 'Back to all event locations', action: 'index' %></p>

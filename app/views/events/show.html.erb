@@ -1,0 +1,21 @@
+<% @title = @event.name + ' details' %>
+<h2><%= h @event.name %></h2>
+<p>Description: <%= h @event.description %></p>
+<p>Ticket Price: <%= @event.ticket_price %></p>
+<p>Ticket Sold: <%=  @ticket_sold %></p>
+<p>Total Turn Over: <%=  @ticket_sold * @event.ticket_price %></p>
+<p>Total Ticket: <%=  @total_ticket %></p>
+<p>Remaining Ticket: <%=  @remaining_ticket %></p>
+<% if @remaining_ticket > 0 %>
+  <%= link_to 'Book ticket', new_event_order_path(@event) %>
+<% else %>
+  <%= link_to 'No ticket available', '#' %>
+<% end %>
+
+<p>
+  <%= link_to 'Edit', :action =>  'edit', :id => @event.id %>
+  <%= link_to 'Delete', event_path(@event), method: :delete, :confirm => 'Are you sure?' %>
+</p>
+<p><%= link_to 'Back to event location', event_location_path(@event.event_location_id) %></p>
+
+
